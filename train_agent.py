@@ -59,16 +59,16 @@ model.summary()
 if isfile(filename):
     model.load_weights(filename)
 
-reward_sums = []
+reward_sums = []  # Used to calculate mean reward sum
 
-filehandler = open('./cnn.log', 'w')
+filehandler = open('./training.log', 'w')
 
 while True:
     if render:
         env.render()
 
     current_obs = preprocess(obs)
-    state = current_obs - previous_obs  # This has been changed
+    state = current_obs - previous_obs
     previous_obs = current_obs
 
     # Predict probabilities from the Keras model
@@ -98,7 +98,7 @@ while True:
         if len(reward_sums) > 40:
             reward_sums.pop(0)
 
-        # Print the current performance of the agent
+        # Print the current performance of the agent and write to log-file
         s = 'Episode %d Total Episode Reward: %f , Mean %f' % (
             episode_number, reward_sum, np.mean(reward_sums))
         print(s)
@@ -111,9 +111,10 @@ while True:
         action_prob_grads = np.vstack(action_prob_grads)
         rewards = propagate_rewards(rewards)
 
-        # Accumulate 
+        # Accumulate observed states, calculate updated action probabilities
         X = np.vstack(states).reshape(-1, 80, 80, 1)
         Y = action_probs + learning_rate * rewards * action_prob_grads
+        # Train policy network
         model.train_on_batch(X, Y)
 
         # Save current weights of the model
