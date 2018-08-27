@@ -18,7 +18,7 @@ run_agent.py ` To run the agent with the trained weights provided run
 `python run_agent.py trained_weights.h5`
 
 # Results to Expect
-[[https://github.com/Paethon/ct_keras_pong/media/learning_progress.png]]
+[[https://github.com/Paethon/ct_keras_pong/tree/master/media/learning_progress.png]]
 
 # Acknowledgments
 The code is in part base on https://github.com/mkturkcan/Keras-Pong
