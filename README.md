@@ -2,6 +2,11 @@
 An AI that plays Atari 2600 Pong. Trained using reinforcement learning using OpenAI Gym and Keras
 
 # Usage
+## Installation
+You need to have OpenAI Gym and Keras installed
+
+`pip install gym[all] Keras`
+
 ## Train the agent
 Run `python train_agent.py weightfile.h5` to train an agent. If
 `weightfile.h5` already exists, the training will continue from the
