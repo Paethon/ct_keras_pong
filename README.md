@@ -16,6 +16,13 @@ progress saved to a new weights file.
 If you do not want to show the game screen to speed up training, set
 the `render` variable in the script to `False`
 
+### Provided Untrained Weights
+The repository also provides `start_weights.h5` containing the randomly
+initalized weights that were used to train the `trained_weights.h5`. The
+method can be very sensitive to the initial weights and it might happen,
+that your agent does not learn. For those cases make a copy of
+`start_weights.h5` to have the same starting point I had during training.
+
 ## Use the agent
 
 You can execute a game in real time with a weights file using `python
