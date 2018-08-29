@@ -18,7 +18,7 @@ the `render` variable in the script to `False`
 
 ### Provided Untrained Weights
 The repository also provides `start_weights.h5` containing the randomly
-initalized weights that were used to train the `trained_weights.h5`. The
+initialized weights that were used to train the `trained_weights.h5`. The
 method can be very sensitive to the initial weights and it might happen,
 that your agent does not learn. For those cases make a copy of
 `start_weights.h5` to have the same starting point I had during training.
@@ -26,8 +26,11 @@ that your agent does not learn. For those cases make a copy of
 ## Use the agent
 
 You can execute a game in real time with a weights file using `python
-run_agent.py ` To run the agent with the trained weights provided run
-`python run_agent.py trained_weights.h5`
+run_agent.py weightsfile.h5` To run the agent with the trained weights
+provided run `python run_agent.py trained_weights.h5`. If
+`run_agent.py` is given a second argument it will save each frame as a
+`.png` file to the `media` directory using the second argument as a
+prefix for the filename.
 
 # Results to Expect
 | Untrained                         | Trained                       |
@@ -36,7 +39,7 @@ run_agent.py ` To run the agent with the trained weights provided run
 
 ## Learning Progress
 
-![Learing Progress](media/learning_progress.png)
+![Learning Progress](media/learning_progress.png)
 
 # Acknowledgments
 The code is in part base on https://github.com/mkturkcan/Keras-Pong

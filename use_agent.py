@@ -1,4 +1,5 @@
 import sys
+import os
 import gym
 import numpy as np
 import keras
@@ -38,9 +39,15 @@ model.summary()
 # Load weights
 model.load_weights(sys.argv[1])
 
+i = 0
+
 while True:
     env.render()
 
+    if len(sys.argv) == 3: # Prefix for images was given, so safe pngs
+        env.env.ale.saveScreenPNG('media/%s_%06d.png' % (sys.argv[2], i))
+    i += 1
+    
     current_obs = preprocess(obs)
     state = current_obs - previous_obs  # This has been changed
     previous_obs = current_obs
