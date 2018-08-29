@@ -30,6 +30,12 @@ run_agent.py ` To run the agent with the trained weights provided run
 `python run_agent.py trained_weights.h5`
 
 # Results to Expect
+| Untrained                         | Trained                       |
+|:---------------------------------:|:-----------------------------:|
+| ![Untrained](media/untrained.gif) | ![Trained](media/trained.gif) |
+
+## Learning Progress
+
 ![Learing Progress](media/learning_progress.png)
 
 # Acknowledgments
