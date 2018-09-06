@@ -1,11 +1,20 @@
 # ct_keras_pong
-An AI that plays Atari 2600 Pong. Trained using reinforcement learning using OpenAI Gym and Keras
+An AI that plays Atari 2600 Pong. Trained using reinforcement learning 
+using OpenAI Gym and Keras
 
 # Usage
 ## Installation
-You need to have OpenAI Gym and Keras installed
+You might need to install *Swig* before being able to use the python 
+libraries.
 
-`pip install gym[all] Keras`
+- [Windows](http://www.swig.org/Doc1.3/Windows.html)
+- Arch: `sudo pacman -S swig`
+- Debian/Ubuntu: `sudo apt install swig`
+
+You need to have *OpenAI Gym* and *Keras* installed, and *wheel* is 
+needed as a dependency.
+
+`pip install wheel gym[all] Keras`
 
 ## Train the agent
 Run `python train_agent.py weightfile.h5` to train an agent. If
@@ -13,15 +22,19 @@ Run `python train_agent.py weightfile.h5` to train an agent. If
 last point, otherwise a new training run will be started and the
 progress saved to a new weights file.
 
-If you do not want to show the game screen to speed up training, set
+A logfile with the training progress will be written to `weightfile.h5.log`.
+
+If you do not want to show the game screen (to speed up training), set
 the `render` variable in the script to `False`
 
 ### Provided Untrained Weights
 The repository also provides `start_weights.h5` containing the randomly
-initialized weights that were used to train the `trained_weights.h5`. The
-method can be very sensitive to the initial weights and it might happen,
-that your agent does not learn. For those cases make a copy of
-`start_weights.h5` to have the same starting point I had during training.
+initialized weights that were used to train the `trained_weights.h5`. 
+Although I did not have any problems with the current iteration of the
+training procedure, the method can be very sensitive to the initial 
+weights and it might happen that your agent does not learn. For those 
+cases make a copy of `start_weights.h5` to have the same starting point 
+I had during training.
 
 ## Use the agent
 
@@ -42,5 +55,5 @@ prefix for the filename.
 ![Learning Progress](media/learning_progress.png)
 
 # Acknowledgments
-The code is in part base on https://github.com/mkturkcan/Keras-Pong
+The code is in part based on https://github.com/mkturkcan/Keras-Pong
 
