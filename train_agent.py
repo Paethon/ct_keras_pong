@@ -61,7 +61,7 @@ if isfile(filename):
 
 reward_sums = []  # Used to calculate mean reward sum
 
-filehandler = open('./training.log', 'w')
+filehandler = open(sys.argv[1]+'.log', 'a')
 
 while True:
     if render:
