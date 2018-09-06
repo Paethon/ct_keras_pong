@@ -12,7 +12,7 @@ keras.backend.set_image_data_format('channels_last')
 filename = sys.argv[1]
 
 # Script Parameters
-learning_rate = 0.001
+learning_rate = 0.1
 render = True
 number_of_actions = 6
 
