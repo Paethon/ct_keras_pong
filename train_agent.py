@@ -61,17 +61,19 @@ if isfile(filename):
 
 reward_sums = []  # Used to calculate mean reward sum
 
-filehandler = open(sys.argv[1]+'.log', 'a')
+filehandler = open(sys.argv[1]+'.log', 'a') # Open logfile
 
 while True:
     if render:
         env.render()
 
+    # Use difference between last and current preprocessed frame as the
+    # current state of the agent
     current_obs = preprocess(obs)
     state = current_obs - previous_obs
     previous_obs = current_obs
 
-    # Predict probabilities from the Keras model
+    # Predict probabilities from the Keras model and sample action
     action_prob = model.predict_on_batch(state.reshape(1, 80, 80, 1))[0, :]
     action = np.random.choice(number_of_actions, p=action_prob)
 
@@ -98,14 +100,15 @@ while True:
         if len(reward_sums) > 40:
             reward_sums.pop(0)
 
-        # Print the current performance of the agent and write to log-file
+        # Print the current performance of the agent ...
         s = 'Episode %d Total Episode Reward: %f , Mean %f' % (
             episode_number, reward_sum, np.mean(reward_sums))
         print(s)
+        # ... and also write to log-file
         filehandler.write(s + '\n')
         filehandler.flush()
             
-        # Propagate the rewards back to actions where no reward was given
+        # Propagate the rewards back to actions where no reward was given.
         # Rewards for earlier actions are attenuated
         rewards = np.vstack(rewards)
         action_prob_grads = np.vstack(action_prob_grads)
