@@ -39,9 +39,9 @@ I had during training.
 ## Use the agent
 
 You can run a game in real time with a weights file using `python
-run_agent.py weightsfile.h5` To run the agent with the trained weights
-provided run `python run_agent.py trained_weights.h5`. If
-`run_agent.py` is given a second argument it will save each frame as a
+use_agent.py weightsfile.h5` To run the agent with the trained weights
+provided run `python use_agent.py trained_weights.h5`. If
+`use_agent.py` is given a second argument it will save each frame as a
 `.png` file to the `media` directory using the second argument as a
 prefix for the filename.
 
